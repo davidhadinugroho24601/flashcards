@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level 3-3 Flashcards (Click Hanzi for Pinyin)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            background: #f4f2ef;
+            min-height: 100vh;
+            padding: 2rem 1.5rem 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .header h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #1e1e2a;
+        }
+
+        .header h1 span {
+            background: #d9c9b4;
+            padding: 0.1rem 0.8rem;
+            border-radius: 12px;
+            color: #2c2c3a;
+        }
+
+        .header .sub {
+            font-size: 1rem;
+            color: #6b5f52;
+            margin-top: 0.3rem;
+            font-weight: 400;
+        }
+
+        .header .badge {
+            display: inline-block;
+            margin-top: 0.6rem;
+            background: #2c2c3a;
+            color: white;
+            padding: 0.3rem 1.5rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.8rem;
+            background: #ffffffd9;
+            backdrop-filter: blur(6px);
+            padding: 0.6rem 1.5rem;
+            border-radius: 60px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            margin-bottom: 2.2rem;
+            border: 1px solid #e8e0d6;
+        }
+
+        .stats {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #2c2c3a;
+            white-space: nowrap;
+        }
+
+        .stats strong {
+            background: #ece6de;
+            padding: 0.1rem 0.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #f3efe9;
+            padding: 0.1rem 0.1rem 0.1rem 1.2rem;
+            border-radius: 40px;
+            transition: 0.2s;
+            border: 1px solid transparent;
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .search-box:focus-within {
+            background: #ffffff;
+            border-color: #b8aa98;
+            box-shadow: 0 0 0 3px rgba(184, 170, 152, 0.2);
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            font-size: 0.9rem;
+            padding: 0.5rem 0;
+            width: 100%;
+            outline: none;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            color: #1e1e2a;
+        }
+
+        .search-box input::placeholder {
+            color: #a89b8c;
+            font-weight: 400;
+        }
+
+        .search-box button {
+            background: #2c2c3a;
+            border: none;
+            color: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .search-box button:hover {
+            background: #1a1a26;
+        }
+
+        .pinyin-global-toggle {
+            background: #ece6de;
+            border: 1px solid #d5cbbc;
+            border-radius: 40px;
+            padding: 0.3rem 1.2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #2c2c3a;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .pinyin-global-toggle:hover {
+            background: #d5cbbc;
+            border-color: #b8aa98;
+        }
+
+        .pinyin-global-toggle .icon {
+            font-size: 1rem;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1.2rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            padding: 0.6rem 1.2rem;
+            background: #ffffffd9;
+            border-radius: 40px;
+            border: 1px solid #e8e0d6;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #2c2c3a;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 4px;
+        }
+
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .vocab-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            border: 1px solid #ebe5dd;
+            transition: 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .vocab-card:hover {
+            border-color: #d0c3b2;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .vocab-card .char-row {
+            display: flex;
+            align-items: baseline;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-top: 0.2rem;
+        }
+
+        .vocab-card .char {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1e1e2a;
+            font-family: 'Noto Sans SC', sans-serif;
+            line-height: 1.2;
+            cursor: pointer;
+            transition: color 0.15s ease, background 0.15s ease;
+            padding: 0.1rem 0.4rem;
+            border-radius: 8px;
+            user-select: none;
+        }
+
+        .vocab-card .char:hover {
+            color: #4a3f33;
+            background: #f0ebe4;
+        }
+
+        .vocab-card .char:active {
+            transform: scale(0.95);
+        }
+
+        .pinyin-container {
+            display: inline-flex;
+            align-items: center;
+            min-width: 2.2rem;
+            justify-content: center;
+        }
+
+        .pinyin-container .pinyin-value {
+            font-size: 1rem;
+            color: #6b5f52;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            display: none;
+        }
+
+        .pinyin-container.revealed .pinyin-value {
+            display: inline;
+        }
+
+        .vocab-card .pos {
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+            align-self: flex-start;
+            margin-top: 0.6rem;
+            background: #f0ebe4;
+            color: #4a4037;
+        }
+
+        .pos-N {
+            background: #dbe9f0;
+            color: #1f5a7a;
+        }
+        .pos-V {
+            background: #e6f0db;
+            color: #3d6b2b;
+        }
+        .pos-Vs {
+            background: #ddf0e6;
+            color: #1e6b4a;
+        }
+        .pos-Vst {
+            background: #ddf0e6;
+            color: #1e6b4a;
+        }
+        .pos-Adv {
+            background: #f0e6db;
+            color: #7a5a2b;
+        }
+        .pos-Prep {
+            background: #f0dbe6;
+            color: #7a2b4a;
+        }
+        .pos-M {
+            background: #e6dbf0;
+            color: #4a2b7a;
+        }
+        .pos-Ptc {
+            background: #f0e8db;
+            color: #7a6b2b;
+        }
+        .pos-N\/V {
+            background: #dbe8f0;
+            color: #1f5a7a;
+        }
+        .pos-Vp {
+            background: #d4e8d4;
+            color: #2d6b2d;
+        }
+        .pos-Vpt {
+            background: #d4e0d4;
+            color: #2d6b3d;
+        }
+        .pos-Det {
+            background: #f0e0d0;
+            color: #7a5a3a;
+        }
+
+        .details-toggle {
+            margin-top: 1.2rem;
+            background: none;
+            border: 1px solid #d5cbbc;
+            border-radius: 30px;
+            padding: 0.5rem 1.2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #4a4037;
+            cursor: pointer;
+            transition: 0.15s;
+            font-family: 'Inter', sans-serif;
+            align-self: flex-start;
+            background: #faf8f5;
+        }
+
+        .details-toggle:hover {
+            background: #e8e0d6;
+            border-color: #b8aa98;
+        }
+
+        .details-toggle .arrow {
+            display: inline-block;
+            transition: transform 0.25s ease;
+        }
+
+        .details-toggle.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .details-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
+            opacity: 0;
+            margin-top: 0;
+        }
+
+        .details-content.open {
+            max-height: 900px;
+            opacity: 1;
+            margin-top: 1.2rem;
+        }
+
+        .details-content .explanation {
+            background: #f8f6f2;
+            padding: 1rem 1.2rem;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #2c2c3a;
+            border-left: 4px solid #d0c3b2;
+            margin-bottom: 1rem;
+        }
+
+        .details-content .explanation strong {
+            color: #1e1e2a;
+        }
+
+        .details-content .explanation .meaning-line {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e1e2a;
+            background: #e8e0d6;
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 0.4rem;
+        }
+
+        .dialogue-box {
+            background: #f0f4f8;
+            padding: 1rem 1.2rem;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .dialogue-toggle-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.3rem;
+        }
+
+        .dialogue-toggle-btn {
+            background: #e8e0d6;
+            border: none;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #2c2c3a;
+            cursor: pointer;
+            transition: 0.15s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .dialogue-toggle-btn:hover {
+            background: #d5cbbc;
+        }
+
+        .dialogue-box .speaker-a {
+            color: #1f5a7a;
+            font-weight: 600;
+        }
+
+        .dialogue-box .speaker-b {
+            color: #3d6b2b;
+            font-weight: 600;
+        }
+
+        .dialogue-box .line {
+            margin-bottom: 0.2rem;
+        }
+        .dialogue-box .line:last-child {
+            margin-bottom: 0;
+        }
+
+        .dialogue-box .zh {
+            font-family: 'Noto Sans SC', sans-serif;
+            margin-right: 0.3rem;
+        }
+
+        .dialogue-details {
+            display: none;
+            margin-left: 0.3rem;
+        }
+
+        .dialogue-details .pinyin-text {
+            font-weight: 400;
+            color: #6b5f52;
+        }
+
+        .dialogue-details .en-text {
+            font-style: italic;
+            color: #4a4037;
+        }
+
+        .dialogue-details .sep {
+            color: #b8aa98;
+            margin: 0 0.2rem;
+        }
+
+        .dialogue-box.show-translation .dialogue-details {
+            display: inline;
+        }
+
+        .empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem 1rem;
+            font-size: 1.1rem;
+            color: #8f8172;
+            background: #faf8f5;
+            border-radius: 30px;
+            border: 1px dashed #d5cbbc;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.8rem 3rem;
+            }
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            .toolbar {
+                flex-direction: column;
+                align-items: stretch;
+                border-radius: 28px;
+                padding: 1rem 1.2rem;
+                gap: 0.8rem;
+            }
+            .stats {
+                text-align: center;
+            }
+            .search-box {
+                padding: 0.1rem 0.1rem 0.1rem 1rem;
+            }
+            .search-box button {
+                padding: 0.4rem 1rem;
+                font-size: 0.8rem;
+            }
+            .vocab-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .vocab-card .char {
+                font-size: 1.8rem;
+            }
+            .pinyin-global-toggle {
+                justify-content: center;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 900px) {
+            .vocab-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 詞彙 <span>Level 3-3</span></h1>
+            <div class="sub">Flashcard Mode · <strong>Click the Hanzi</strong> to reveal Pinyin</div>
+            <div class="badge">🔍 Click the character to show pinyin · "Show Details" for meaning & dialogue</div>
+        </div>
+
+        <div class="toolbar">
+            <div class="stats">
+                <strong id="countDisplay">0</strong> words
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search Chinese, Pinyin, or English..." autocomplete="off" />
+                <button id="clearBtn">✕</button>
+            </div>
+            <button class="pinyin-global-toggle" id="pinyinGlobalToggle">
+                <span class="icon">🔊</span>
+                <span id="pinyinToggleLabel">Show All Pinyin</span>
+            </button>
+        </div>
+
+        <div class="legend" id="legendContainer"></div>
+
+        <div class="vocab-grid" id="vocabGrid"></div>
+    </div>
+
+    <script>
+        // ------------------------------------------------------------
+        // DATA — Level 3-3 Vocabulary (Traditional Hanzi)
+        // ------------------------------------------------------------
+        const vocabData = [{
+            char: '鞭炮',
+            pinyin: 'biānpào',
+            pos: 'N',
+            en: 'Firecrackers',
+            explanation: 'A string of small explosives used during celebrations, especially the Chinese New Year, to drive away evil spirits and bring good luck.',
+            dialogue: [
+                { speaker: 'A', chinese: '過年放鞭炮真熱鬧。', pinyin: 'Guònián fàng biānpào zhēn rènao.', english: 'Setting off firecrackers during New Year is really lively.' },
+                { speaker: 'B', chinese: '是啊，但是要注意安全。', pinyin: 'Shì a, dànshì yào zhùyì ānquán.', english: 'Yeah, but we need to be careful.' }
+            ]
+        }, {
+            char: '變',
+            pinyin: 'biàn',
+            pos: 'V',
+            en: 'To change / To become',
+            explanation: 'A general verb meaning to change, transform, or become different. Often used with adjectives to indicate a change of state.',
+            dialogue: [
+                { speaker: 'A', chinese: '天氣變冷了。', pinyin: 'Tiānqì biàn lěng le.', english: 'The weather has become cold.' },
+                { speaker: 'B', chinese: '對，要多穿衣服。', pinyin: 'Duì, yào duō chuān yīfu.', english: 'Right, we need to wear more clothes.' }
+            ]
+        }, {
+            char: '變成',
+            pinyin: 'biànchéng',
+            pos: 'Vpt',
+            en: 'To turn into / To become',
+            explanation: 'Indicates a transformation from one state or form to another. Used for physical changes, roles, or abstract transitions.',
+            dialogue: [
+                { speaker: 'A', chinese: '毛毛蟲變成蝴蝶了。', pinyin: 'Máomaochóng biànchéng húdié le.', english: 'The caterpillar turned into a butterfly.' },
+                { speaker: 'B', chinese: '真神奇！', pinyin: 'Zhēn shénqí!', english: 'So amazing!' }
+            ]
+        }, {
+            char: '變更',
+            pinyin: 'biàngēng',
+            pos: 'V',
+            en: 'To alter / To modify',
+            explanation: 'A formal verb meaning to make changes to plans, schedules, rules, or documents. Often used in official or business contexts.',
+            dialogue: [
+                { speaker: 'A', chinese: '會議時間變更了。', pinyin: 'Huìyì shíjiān biàngēng le.', english: 'The meeting time has been changed.' },
+                { speaker: 'B', chinese: '改成幾點？', pinyin: 'Gǎi chéng jǐ diǎn?', english: 'Changed to what time?' }
+            ]
+        }, {
+            char: '變化',
+            pinyin: 'biànhuà',
+            pos: 'N / Vs',
+            en: 'Change / Variation',
+            explanation: 'Can be a noun meaning "change" or a stative verb meaning "to change." Describes differences over time or between states.',
+            dialogue: [
+                { speaker: 'A', chinese: '這幾年城市的變化很大。', pinyin: 'Zhè jǐ nián chéngshì de biànhuà hěn dà.', english: 'The city has changed a lot in recent years.' },
+                { speaker: 'B', chinese: '是啊，我都快不認識了。', pinyin: 'Shì a, wǒ dōu kuài bù rènshi le.', english: 'Yeah, I almost don\'t recognize it.' }
+            ]
+        }, {
+            char: '便條',
+            pinyin: 'biàntiáo',
+            pos: 'N',
+            en: 'Note / Memo',
+            explanation: 'A short written message, often used for reminders or quick communication. Can be a sticky note or a brief letter.',
+            dialogue: [
+                { speaker: 'A', chinese: '我留了一張便條給你。', pinyin: 'Wǒ liú le yī zhāng biàntiáo gěi nǐ.', english: 'I left a note for you.' },
+                { speaker: 'B', chinese: '謝謝，我看到了。', pinyin: 'Xièxie, wǒ kàndào le.', english: 'Thanks, I saw it.' }
+            ]
+        }, {
+            char: '表達',
+            pinyin: 'biǎodá',
+            pos: 'V',
+            en: 'To express / To convey',
+            explanation: 'To communicate thoughts, feelings, or opinions through words, actions, or art. Used in both spoken and written contexts.',
+            dialogue: [
+                { speaker: 'A', chinese: '你應該表達你的感受。', pinyin: 'Nǐ yīnggāi biǎodá nǐ de gǎnshòu.', english: 'You should express your feelings.' },
+                { speaker: 'B', chinese: '我怕說出來不好。', pinyin: 'Wǒ pà shuō chūlái bù hǎo.', english: 'I\'m afraid it won\'t be good to say it.' }
+            ]
+        }, {
+            char: '表面',
+            pinyin: 'biǎomian',
+            pos: 'N',
+            en: 'Surface / Exterior',
+            explanation: 'The outside face of an object, or figuratively the outward appearance of a person or situation (as opposed to the inner reality).',
+            dialogue: [
+                { speaker: 'A', chinese: '桌子表面很光滑。', pinyin: 'Zhuōzi biǎomian hěn guānghuá.', english: 'The surface of the table is very smooth.' },
+                { speaker: 'B', chinese: '我喜歡這個材質。', pinyin: 'Wǒ xǐhuān zhège cáizhì.', english: 'I like this material.' }
+            ]
+        }, {
+            char: '表示',
+            pinyin: 'biǎoshi',
+            pos: 'V',
+            en: 'To indicate / To show',
+            explanation: 'To express or demonstrate something, often through words, gestures, or symbols. Can also mean "to stand for" or "to represent."',
+            dialogue: [
+                { speaker: 'A', chinese: '他點點頭表示同意。', pinyin: 'Tā diǎndiǎn tóu biǎoshi tóngyì.', english: 'He nodded to show agreement.' },
+                { speaker: 'B', chinese: '那我們就這麼辦吧。', pinyin: 'Nà wǒmen jiù zhème bàn ba.', english: 'Then let\'s do it that way.' }
+            ]
+        }, {
+            char: '表現',
+            pinyin: 'biǎoxiàn',
+            pos: 'N / V',
+            en: 'To perform / Performance',
+            explanation: 'As a verb, to show or display one\'s abilities or behavior. As a noun, it refers to performance or achievement in a task or activity.',
+            dialogue: [
+                { speaker: 'A', chinese: '他在公司的表現很好。', pinyin: 'Tā zài gōngsī de biǎoxiàn hěn hǎo.', english: 'His performance at the company is very good.' },
+                { speaker: 'B', chinese: '對，他非常努力。', pinyin: 'Duì, tā fēicháng nǔlì.', english: 'Yes, he works very hard.' }
+            ]
+        }, {
+            char: '表演',
+            pinyin: 'biǎoyǎn',
+            pos: 'V / N',
+            en: 'To perform / Performance',
+            explanation: 'Refers to acting, playing music, or any stage performance. Can be used as a verb (to perform) or a noun (a show).',
+            dialogue: [
+                { speaker: 'A', chinese: '今晚有魔術表演。', pinyin: 'Jīnwǎn yǒu móshù biǎoyǎn.', english: 'There is a magic show tonight.' },
+                { speaker: 'B', chinese: '太好了，我們去看吧！', pinyin: 'Tài hǎo le, wǒmen qù kàn ba!', english: 'Great, let\'s go watch!' }
+            ]
+        }, {
+            char: '畢竟',
+            pinyin: 'bìjìng',
+            pos: 'Adv',
+            en: 'After all / In the end',
+            explanation: 'An adverb used to emphasize a reason or cause that is considered the most important or ultimate. Often used in explanations or justifications.',
+            dialogue: [
+                { speaker: 'A', chinese: '他畢竟是孩子，別太嚴格。', pinyin: 'Tā bìjìng shì háizi, bié tài yángé.', english: 'He\'s a child after all, don\'t be too strict.' },
+                { speaker: 'B', chinese: '好吧，我會耐心一點。', pinyin: 'Hǎo ba, wǒ huì nàixīn yīdiǎn.', english: 'Alright, I\'ll be more patient.' }
+            ]
+        }, {
+            char: '避免',
+            pinyin: 'bìmiǎn',
+            pos: 'V',
+            en: 'To avoid',
+            explanation: 'To keep away from something negative, such as danger, mistakes, or conflicts. Often used with 不了 (cannot avoid) or 避免 + noun.',
+            dialogue: [
+                { speaker: 'A', chinese: '我們要避免犯同樣的錯誤。', pinyin: 'Wǒmen yào bìmiǎn fàn tóngyàng de cuòwù.', english: 'We should avoid making the same mistakes.' },
+                { speaker: 'B', chinese: '對，我會記住教訓。', pinyin: 'Duì, wǒ huì jìzhù jiàoxùn.', english: 'Right, I\'ll remember the lesson.' }
+            ]
+        }, {
+            char: '餅',
+            pinyin: 'bǐng',
+            pos: 'N',
+            en: 'Cake / Pastry / Flatbread',
+            explanation: 'A general term for baked or fried flat food items, such as pancakes, cookies, or biscuits. Often combined with other characters to specify types.',
+            dialogue: [
+                { speaker: 'A', chinese: '我喜歡吃蔥油餅。', pinyin: 'Wǒ xǐhuān chī cōngyóubǐng.', english: 'I like to eat scallion pancakes.' },
+                { speaker: 'B', chinese: '我也是，那家店做得特別好吃。', pinyin: 'Wǒ yě shì, nà jiā diàn zuò de tèbié hǎochī.', english: 'Me too, that shop makes them especially delicious.' }
+            ]
+        }, {
+            char: '病',
+            pinyin: 'bìng',
+            pos: 'Vp',
+            en: 'To fall ill / To be sick',
+            explanation: 'A verb-particle construction meaning to get sick or be ill. Often used with 了 to indicate a change: 病了 (became sick).',
+            dialogue: [
+                { speaker: 'A', chinese: '他生病了，今天沒來上班。', pinyin: 'Tā shēngbìng le, jīntiān méi lái shàngbān.', english: 'He got sick; he didn\'t come to work today.' },
+                { speaker: 'B', chinese: '希望他快點好起來。', pinyin: 'Xīwàng tā kuài diǎn hǎo qǐlái.', english: 'Hope he gets better soon.' }
+            ]
+        }, {
+            char: '比如',
+            pinyin: 'bírú',
+            pos: 'Prep',
+            en: 'For example / Such as',
+            explanation: 'A preposition used to introduce an example. Often used in explanations or lists. Can also be 比如說 (bírúshuō) with the same meaning.',
+            dialogue: [
+                { speaker: 'A', chinese: '我喜歡運動，比如跑步和游泳。', pinyin: 'Wǒ xǐhuān yùndòng, bírú pǎobù hé yóuyǒng.', english: 'I like sports, such as running and swimming.' },
+                { speaker: 'B', chinese: '我也喜歡，下次一起去吧。', pinyin: 'Wǒ yě xǐhuān, xià cì yīqǐ qù ba.', english: 'I like them too, let\'s go together next time.' }
+            ]
+        }, {
+            char: '必要',
+            pinyin: 'bìyào',
+            pos: 'Vs',
+            en: 'Necessary / Essential',
+            explanation: 'Describes something that is required or indispensable. Often used with 不必要 (unnecessary) or 必要 + noun (e.g., 必要的準備).',
+            dialogue: [
+                { speaker: 'A', chinese: '這件事沒有必要再討論了。', pinyin: 'Zhè jiàn shì méiyǒu bìyào zài tǎolùn le.', english: 'There\'s no need to discuss this matter further.' },
+                { speaker: 'B', chinese: '我同意，我們決定吧。', pinyin: 'Wǒ tóngyì, wǒmen juédìng ba.', english: 'I agree, let\'s decide.' }
+            ]
+        }, {
+            char: '播',
+            pinyin: 'bō',
+            pos: 'V',
+            en: 'To broadcast / To sow',
+            explanation: 'Can mean to broadcast (radio, TV) or to sow seeds. Commonly used with 新聞 (news), 節目 (program), or crops.',
+            dialogue: [
+                { speaker: 'A', chinese: '電視在播什麼節目？', pinyin: 'Diànshì zài bō shénme jiémù?', english: 'What program is the TV broadcasting?' },
+                { speaker: 'B', chinese: '正在播新聞。', pinyin: 'Zhèngzài bō xīnwén.', english: 'They are broadcasting the news.' }
+            ]
+        }, {
+            char: '博士',
+            pinyin: 'bóshi',
+            pos: 'N',
+            en: 'Doctor (PhD)',
+            explanation: 'The highest academic degree, equivalent to a PhD. Also used as a title for someone who holds a doctorate. Not to be confused with medical doctor (醫生).',
+            dialogue: [
+                { speaker: 'A', chinese: '他是北京大學的博士。', pinyin: 'Tā shì Běijīng Dàxué de bóshi.', english: 'He is a PhD from Peking University.' },
+                { speaker: 'B', chinese: '好厲害啊！', pinyin: 'Hǎo lìhài a!', english: 'So impressive!' }
+            ]
+        }, {
+            char: '博物館',
+            pinyin: 'bówùguǎn',
+            pos: 'N',
+            en: 'Museum',
+            explanation: 'A building where historical, cultural, or scientific objects are displayed and preserved for public viewing.',
+            dialogue: [
+                { speaker: 'A', chinese: '週末我們去博物館吧。', pinyin: 'Zhōumò wǒmen qù bówùguǎn ba.', english: 'Let\'s go to the museum this weekend.' },
+                { speaker: 'B', chinese: '好主意，聽說有個特展。', pinyin: 'Hǎo zhǔyi, tīngshuō yǒu gè tèzhǎn.', english: 'Good idea, I heard there\'s a special exhibition.' }
+            ]
+        }, {
+            char: '布',
+            pinyin: 'bù',
+            pos: 'N',
+            en: 'Cloth / Fabric',
+            explanation: 'Material used for making clothes, curtains, or other textile products. Can also refer to a piece of cloth.',
+            dialogue: [
+                { speaker: 'A', chinese: '我需要買幾塊布做窗簾。', pinyin: 'Wǒ xūyào mǎi jǐ kuài bù zuò chuānglián.', english: 'I need to buy some fabric to make curtains.' },
+                { speaker: 'B', chinese: '我陪你去布店挑選。', pinyin: 'Wǒ péi nǐ qù bùdiàn tiāoxuǎn.', english: 'I\'ll go with you to the fabric shop to choose.' }
+            ]
+        }, {
+            char: '不見(了)',
+            pinyin: 'bùjiàn (le)',
+            pos: 'Vp',
+            en: 'To disappear / Can\'t be found',
+            explanation: 'A verb phrase meaning that something or someone is no longer visible or has been lost. Often used with 了 to indicate a completed loss.',
+            dialogue: [
+                { speaker: 'A', chinese: '我的手機不見了！', pinyin: 'Wǒ de shǒujī bùjiàn le!', english: 'My phone is gone!' },
+                { speaker: 'B', chinese: '別急，我幫你找找。', pinyin: 'Bié jí, wǒ bāng nǐ zhǎozhao.', english: 'Don\'t panic, I\'ll help you look for it.' }
+            ]
+        }, {
+            char: '不得不',
+            pinyin: 'bùdébù',
+            pos: 'Adv',
+            en: 'Have to / Cannot but',
+            explanation: 'An adverb expressing that one has no choice but to do something due to circumstances. Used when the action is unavoidable.',
+            dialogue: [
+                { speaker: 'A', chinese: '我不得不放棄這個計劃。', pinyin: 'Wǒ bùdébù fàngqì zhège jìhuà.', english: 'I have no choice but to give up this plan.' },
+                { speaker: 'B', chinese: '為什麼？發生什麼事了？', pinyin: 'Wèishénme? Fāshēng shénme shì le?', english: 'Why? What happened?' }
+            ]
+        }, {
+            char: '不斷',
+            pinyin: 'bùduàn',
+            pos: 'Adv / Vs',
+            en: 'Continuously / Unceasing',
+            explanation: 'As an adverb, means "continuously" or "without stopping." As a stative verb, it can mean "unceasing" or "constant."',
+            dialogue: [
+                { speaker: 'A', chinese: '他不斷地打電話給我。', pinyin: 'Tā bùduàn de dǎ diànhuà gěi wǒ.', english: 'He keeps calling me continuously.' },
+                { speaker: 'B', chinese: '可能是有急事。', pinyin: 'Kěnéng shì yǒu jíshì.', english: 'Maybe it\'s urgent.' }
+            ]
+        }];
+
+        // ------------------------------------------------------------
+        // RENDER ENGINE
+        // ------------------------------------------------------------
+        const grid = document.getElementById('vocabGrid');
+        const searchInput = document.getElementById('searchInput');
+        const clearBtn = document.getElementById('clearBtn');
+        const countDisplay = document.getElementById('countDisplay');
+        const legendContainer = document.getElementById('legendContainer');
+        const pinyinGlobalToggle = document.getElementById('pinyinGlobalToggle');
+        const pinyinToggleLabel = document.getElementById('pinyinToggleLabel');
+
+        let globalPinyinRevealed = false;
+
+        // Legend
+        const posSet = new Set(vocabData.map(d => d.pos));
+        const posLabels = {
+            'N': 'Noun',
+            'V': 'Verb',
+            'Vs': 'Stative Verb',
+            'Vst': 'Stative/Transitive Verb',
+            'Adv': 'Adverb',
+            'Prep': 'Preposition',
+            'M': 'Measure Word',
+            'Ptc': 'Particle',
+            'N/V': 'Noun / Verb',
+            'Vp': 'Verb Phrase',
+            'Vpt': 'Verb Phrase (Trans.)',
+            'Det': 'Determiner'
+        };
+        const dotColorMap = {
+            'N': '#7ba9c9',
+            'V': '#7fb06a',
+            'Vs': '#5ba884',
+            'Vst': '#5ba884',
+            'Adv': '#c9a86a',
+            'Prep': '#c97a9a',
+            'M': '#9a7ac9',
+            'Ptc': '#c9b86a',
+            'N/V': '#7ba9c9',
+            'Vp': '#6ab06a',
+            'Vpt': '#6a9a6a',
+            'Det': '#d4a87a'
+        };
+
+        function buildLegend() {
+            const sorted = Array.from(posSet).sort();
+            let html = '';
+            sorted.forEach(label => {
+                const display = posLabels[label] || label;
+                const color = dotColorMap[label] || '#b8aa98';
+                html += `<span class="legend-item"><span class="legend-dot" style="background:${color};"></span>${display}</span>`;
+            });
+            legendContainer.innerHTML = html;
+        }
+        buildLegend();
+
+        // Render function
+        function render(filter = '') {
+            const term = filter.trim().toLowerCase();
+            let filtered = vocabData;
+
+            if (term) {
+                filtered = vocabData.filter(item => {
+                    let dialogueSearch = '';
+                    item.dialogue.forEach(line => {
+                        dialogueSearch += line.chinese + ' ' + line.pinyin + ' ' + line.english + ' ';
+                    });
+                    const searchable = item.char + ' ' + item.pinyin + ' ' + item.en + ' ' + item.explanation + ' ' + dialogueSearch;
+                    return searchable.toLowerCase().includes(term);
+                });
+            }
+
+            countDisplay.textContent = filtered.length;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="empty">🔍 No matches found.</div>`;
+                return;
+            }
+
+            let html = '';
+            filtered.forEach((item, index) => {
+                const posClass = 'pos-' + item.pos.replace('/', '-');
+                const posDisplay = posLabels[item.pos] || item.pos;
+
+                // Build dialogue HTML
+                let dialogueHtml = '';
+                dialogueHtml += `
+                        <div class="dialogue-toggle-wrapper">
+                            <strong>💬 Dialogue:</strong>
+                            <button class="dialogue-toggle-btn" data-dialogue-idx="${index}">Show Pinyin & Translation</button>
+                        </div>
+                        <div class="dialogue-lines">
+                    `;
+
+                item.dialogue.forEach(line => {
+                    const speakerClass = line.speaker === 'A' ? 'speaker-a' : 'speaker-b';
+                    dialogueHtml += `
+                            <div class="line">
+                                <span class="${speakerClass}">${line.speaker}:</span>
+                                <span class="zh">${line.chinese}</span>
+                                <span class="dialogue-details">
+                                    <span class="sep">·</span>
+                                    <span class="pinyin-text">${line.pinyin}</span>
+                                    <span class="sep">·</span>
+                                    <span class="en-text">${line.english}</span>
+                                </span>
+                            </div>
+                        `;
+                });
+
+                dialogueHtml += `</div>`;
+
+                html += `
+                        <div class="vocab-card" data-index="${index}">
+                            <div class="char-row">
+                                <span class="char">${item.char}</span>
+                                <span class="pinyin-container" data-pinyin="${item.pinyin}" data-revealed="false">
+                                    <span class="pinyin-value">${item.pinyin}</span>
+                                </span>
+                            </div>
+                            <span class="pos ${posClass}">${posDisplay}</span>
+
+                            <button class="details-toggle" data-target="details-${index}">
+                                <span class="arrow">▼</span> Show Details (Meaning, Explanation & Dialogue)
+                            </button>
+
+                            <div id="details-${index}" class="details-content">
+                                <div class="explanation">
+                                    <div class="meaning-line">📘 ${item.en}</div>
+                                    <br />
+                                    <strong>📖 Usage:</strong> ${item.explanation}
+                                </div>
+                                <div class="dialogue-box" id="dialogue-box-${index}">
+                                    ${dialogueHtml}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+            });
+
+            grid.innerHTML = html;
+
+            // ---- Click on the Hanzi toggles its pinyin ----
+            document.querySelectorAll('.char').forEach(charEl => {
+                charEl.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const row = this.closest('.char-row');
+                    const pinyinContainer = row ? row.querySelector('.pinyin-container') : null;
+                    if (!pinyinContainer) return;
+                    const isRevealed = pinyinContainer.dataset.revealed === 'true';
+                    const newState = !isRevealed;
+                    pinyinContainer.dataset.revealed = newState ? 'true' : 'false';
+                    pinyinContainer.classList.toggle('revealed', newState);
+                });
+            });
+
+            // ---- Apply global state to all pinyin containers ----
+            document.querySelectorAll('.pinyin-container').forEach(el => {
+                const shouldReveal = globalPinyinRevealed;
+                el.dataset.revealed = shouldReveal ? 'true' : 'false';
+                el.classList.toggle('revealed', shouldReveal);
+            });
+
+            // ---- Toggle main details (Meaning/Explanation) ----
+            document.querySelectorAll('.details-toggle').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const targetId = this.dataset.target;
+                    const content = document.getElementById(targetId);
+                    if (!content) return;
+
+                    const isOpen = content.classList.contains('open');
+                    if (isOpen) {
+                        content.classList.remove('open');
+                        this.classList.remove('active');
+                        this.innerHTML = '<span class="arrow">▼</span> Show Details (Meaning, Explanation & Dialogue)';
+                    } else {
+                        content.classList.add('open');
+                        this.classList.add('active');
+                        this.innerHTML = '<span class="arrow">▲</span> Hide Details';
+                    }
+                });
+            });
+
+            // ---- Toggle dialogue pinyin/translation ----
+            document.querySelectorAll('.dialogue-toggle-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const idx = this.dataset.dialogueIdx;
+                    const dialogueBox = document.getElementById(`dialogue-box-${idx}`);
+                    if (!dialogueBox) return;
+
+                    const isShowing = dialogueBox.classList.contains('show-translation');
+                    if (isShowing) {
+                        dialogueBox.classList.remove('show-translation');
+                        this.textContent = 'Show Pinyin & Translation';
+                    } else {
+                        dialogueBox.classList.add('show-translation');
+                        this.textContent = 'Hide Pinyin & Translation';
+                    }
+                });
+            });
+
+            updateGlobalToggleLabel();
+        }
+
+        // ---- Global Pinyin Toggle ----
+        function updateGlobalToggleLabel() {
+            if (globalPinyinRevealed) {
+                pinyinToggleLabel.textContent = 'Hide All Pinyin';
+                pinyinGlobalToggle.querySelector('.icon').textContent = '🔓';
+            } else {
+                pinyinToggleLabel.textContent = 'Show All Pinyin';
+                pinyinGlobalToggle.querySelector('.icon').textContent = '🔊';
+            }
+        }
+
+        pinyinGlobalToggle.addEventListener('click', function() {
+            globalPinyinRevealed = !globalPinyinRevealed;
+            document.querySelectorAll('.pinyin-container').forEach(el => {
+                el.dataset.revealed = globalPinyinRevealed ? 'true' : 'false';
+                el.classList.toggle('revealed', globalPinyinRevealed);
+            });
+            updateGlobalToggleLabel();
+        });
+
+        // ---- Search & Clear ----
+        searchInput.addEventListener('input', () => render(searchInput.value));
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            render('');
+            searchInput.focus();
+        });
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') clearBtn.click();
+        });
+
+        // ---- Initial render ----
+        render('');
+    </script>
+</body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vocabulary Level 3 – Navigation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        /* ── reset & base ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            background: #f4f2ef;
+            min-height: 100vh;
+            padding: 2rem 1.5rem 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #1e1e2a;
+        }
+
+        .container {
+            max-width: 1300px;
+            width: 100%;
+        }
+
+        /* ── header ── */
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .header h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #1e1e2a;
+        }
+
+        .header h1 span {
+            background: #d9c9b4;
+            padding: 0.1rem 0.8rem;
+            border-radius: 12px;
+            color: #2c2c3a;
+        }
+
+        .header .sub {
+            font-size: 1rem;
+            color: #6b5f52;
+            margin-top: 0.3rem;
+            font-weight: 400;
+        }
+
+        .header .badge {
+            display: inline-block;
+            margin-top: 0.6rem;
+            background: #2c2c3a;
+            color: white;
+            padding: 0.3rem 1.5rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── toolbar ── */
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.8rem;
+            background: #ffffffd9;
+            backdrop-filter: blur(6px);
+            padding: 0.6rem 1.5rem;
+            border-radius: 60px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            margin-bottom: 2.2rem;
+            border: 1px solid #e8e0d6;
+        }
+
+        .stats {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #2c2c3a;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stats strong {
+            background: #ece6de;
+            padding: 0.1rem 0.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+        }
+
+        .stats .stat-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-left: 0.2rem;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #f3efe9;
+            padding: 0.1rem 0.1rem 0.1rem 1.2rem;
+            border-radius: 40px;
+            transition: 0.2s;
+            border: 1px solid transparent;
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .search-box:focus-within {
+            background: #ffffff;
+            border-color: #b8aa98;
+            box-shadow: 0 0 0 3px rgba(184, 170, 152, 0.2);
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            font-size: 0.9rem;
+            padding: 0.5rem 0;
+            width: 100%;
+            outline: none;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            color: #1e1e2a;
+        }
+
+        .search-box input::placeholder {
+            color: #a89b8c;
+            font-weight: 400;
+        }
+
+        .search-box button {
+            background: #2c2c3a;
+            border: none;
+            color: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .search-box button:hover {
+            background: #1a1a26;
+        }
+
+        .filter-btns {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btns button {
+            background: #f3efe9;
+            border: 1px solid #d5cbbc;
+            border-radius: 40px;
+            padding: 0.3rem 1.2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #2c2c3a;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .filter-btns button:hover {
+            background: #d5cbbc;
+            border-color: #b8aa98;
+        }
+
+        .filter-btns button.active {
+            background: #2c2c3a;
+            border-color: #2c2c3a;
+            color: #fff;
+        }
+
+        .filter-btns button .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 0 0.6rem;
+            font-size: 0.65rem;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        .filter-btns button.active .badge {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .filter-btns button .dot-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .dot-html {
+            background: #7ba9c9;
+        }
+        .dot-pdf {
+            background: #c97a6a;
+        }
+        .dot-all {
+            background: #b8aa98;
+        }
+
+        /* ── grid ── */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* ── card ── */
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.5rem 1.5rem 1.5rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            border: 1px solid #ebe5dd;
+            transition: 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            border-color: #d0c3b2;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .card .level-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #6b5f52;
+            margin-bottom: 0.2rem;
+        }
+
+        .card .level-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e1e2a;
+            font-family: 'Noto Sans SC', sans-serif;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .card .level-number .dash {
+            color: #b8aa98;
+            font-weight: 300;
+        }
+
+        .card .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: auto;
+        }
+
+        .card .links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s;
+            border: 1.5px solid transparent;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .card .links a.html-link {
+            background: #eef4fb;
+            color: #1f5a7a;
+            border-color: #d1dfef;
+        }
+
+        .card .links a.html-link:hover {
+            background: #dce8f7;
+            border-color: #a8bfdb;
+            transform: scale(1.02);
+        }
+
+        .card .links a.pdf-link {
+            background: #f5f0eb;
+            color: #8b3f2c;
+            border-color: #e5d7ce;
+        }
+
+        .card .links a.pdf-link:hover {
+            background: #ece1d8;
+            border-color: #d4bcaa;
+            transform: scale(1.02);
+        }
+
+        .card .links a .icon {
+            font-size: 1rem;
+            line-height: 1;
+        }
+
+        .card .links a .label {
+            font-size: 0.7rem;
+            letter-spacing: 0.02em;
+        }
+
+        .card .no-files {
+            font-size: 0.8rem;
+            color: #a89b8c;
+            font-style: italic;
+            padding: 0.2rem 0;
+        }
+
+        /* ── empty state ── */
+        .empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem 1rem;
+            font-size: 1.1rem;
+            color: #8f8172;
+            background: #faf8f5;
+            border-radius: 30px;
+            border: 1px dashed #d5cbbc;
+        }
+
+        .empty strong {
+            color: #2c2c3a;
+        }
+
+        /* ── responsive ── */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.8rem 3rem;
+            }
+
+            .header h1 {
+                font-size: 1.6rem;
+            }
+
+            .toolbar {
+                flex-direction: column;
+                align-items: stretch;
+                border-radius: 28px;
+                padding: 1rem 1.2rem;
+                gap: 0.8rem;
+            }
+
+            .stats {
+                justify-content: center;
+            }
+
+            .search-box {
+                padding: 0.1rem 0.1rem 0.1rem 1rem;
+            }
+
+            .search-box button {
+                padding: 0.4rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .filter-btns {
+                justify-content: center;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .card .level-number {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- header -->
+        <header class="header">
+            <h1>📚 詞彙 <span>Level 3</span></h1>
+            <div class="sub">All 54 units — quick navigation</div>
+            <div class="badge">📂 Browse units · HTML &amp; PDF available</div>
+        </header>
+
+        <!-- toolbar -->
+        <div class="toolbar">
+            <div class="stats">
+                📄 <strong id="totalCount">54</strong> units
+                <span class="stat-dot" style="background:#7ba9c9;"></span>
+                <span id="htmlStat" style="font-weight:400;font-size:0.8rem;color:#6b5f52;">13 HTML</span>
+                <span class="stat-dot" style="background:#c97a6a;"></span>
+                <span id="pdfStat" style="font-weight:400;font-size:0.8rem;color:#6b5f52;">54 PDF</span>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Filter by level (e.g. 3-12)…" autocomplete="off" />
+                <button id="clearBtn">✕</button>
+            </div>
+
+            <div class="filter-btns">
+                <button class="active" data-filter="all">
+                    <span class="dot-indicator dot-all"></span>
+                    All <span class="badge" id="allCount">54</span>
+                </button>
+                <button data-filter="html">
+                    <span class="dot-indicator dot-html"></span>
+                    HTML <span class="badge" id="htmlCount">0</span>
+                </button>
+                <button data-filter="pdf">
+                    <span class="dot-indicator dot-pdf"></span>
+                    PDF <span class="badge" id="pdfCount">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- grid -->
+        <div class="grid" id="grid"></div>
+
+    </div>
+
+    <script>
+        // ─── data ──────────────────────────────────────────────────────────────
+        // Level 3-1 … 3-13 have both HTML + PDF; 3-14 … 3-54 have PDF only.
+        const LEVELS = [];
+
+        for (let i = 1; i <= 54; i++) {
+            LEVELS.push({ level: i, hasHtml: true, hasPdf: true });
+        }
+        // for (let i = 21; i <= 54; i++) {
+        //     LEVELS.push({ level: i, hasHtml: false, hasPdf: true });
+        // }
+
+        // ─── helpers ──────────────────────────────────────────────────────────
+        function levelStr(n) {
+            return `3-${n}`;
+        }
+
+        function htmlPath(n) {
+            return `詞彙 Vocabulary – Level 3-${n}.html`;
+        }
+
+        function pdfPath(n) {
+            return `詞彙 Vocabulary – Level 3-${n}.pdf`;
+        }
+
+        // ─── render ──────────────────────────────────────────────────────────
+        const grid = document.getElementById('grid');
+        const searchInput = document.getElementById('searchInput');
+        const clearBtn = document.getElementById('clearBtn');
+        const filterBtns = document.querySelectorAll('.filter-btns button');
+
+        let currentFilter = 'all';
+        let searchQuery = '';
+
+        function render() {
+            const filtered = LEVELS.filter(item => {
+                const q = searchQuery.trim().toLowerCase();
+                const label = levelStr(item.level).toLowerCase();
+                if (q && !label.includes(q)) return false;
+
+                if (currentFilter === 'html') return item.hasHtml;
+                if (currentFilter === 'pdf') return item.hasPdf;
+                return true;
+            });
+
+            // update badge counts
+            const total = LEVELS.length;
+            const htmlTotal = LEVELS.filter(i => i.hasHtml).length;
+            const pdfTotal = LEVELS.filter(i => i.hasPdf).length;
+
+            document.getElementById('allCount').textContent = total;
+            document.getElementById('htmlCount').textContent = htmlTotal;
+            document.getElementById('pdfCount').textContent = pdfTotal;
+            document.getElementById('totalCount').textContent = total;
+            document.getElementById('htmlStat').textContent = `${htmlTotal} HTML`;
+            document.getElementById('pdfStat').textContent = `${pdfTotal} PDF`;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                            <div class="empty">
+                                <strong>No matches</strong> — try adjusting your filter or search.
+                            </div>
+                        `;
+                return;
+            }
+
+            let html = '';
+            for (const item of filtered) {
+                const num = item.level;
+                const label = levelStr(num);
+                const hasH = item.hasHtml;
+                const hasP = item.hasPdf;
+
+                html += `
+                            <div class="card">
+                                <div class="level-label">Unit</div>
+                                <div class="level-number">${label}</div>
+                                <div class="links">
+                                    ${hasH ? `<a href="${htmlPath(num)}" class="html-link"><span class="icon">🌐</span><span class="label">HTML</span></a>` : ''}
+                                    ${hasP ? `<a href="${pdfPath(num)}" class="pdf-link"><span class="icon">📄</span><span class="label">PDF</span></a>` : ''}
+                                    ${!hasH && !hasP ? `<span class="no-files">— no files —</span>` : ''}
+                                </div>
+                            </div>
+                        `;
+            }
+
+            grid.innerHTML = html;
+        }
+
+        // ─── event listeners ──────────────────────────────────────────────────
+
+        // search
+        searchInput.addEventListener('input', () => {
+            searchQuery = searchInput.value;
+            render();
+        });
+
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            searchQuery = '';
+            render();
+            searchInput.focus();
+        });
+
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') clearBtn.click();
+        });
+
+        // filter buttons
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                render();
+            });
+        });
+
+        // ─── init ─────────────────────────────────────────────────────────────
+        render();
+    </script>
+</body>
+</html>
