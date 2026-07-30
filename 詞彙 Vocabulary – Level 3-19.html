@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Level 3-10 Flashcards (Click Hanzi for Pinyin)</title>
+    <title>Level 3-19 Flashcards (Click Hanzi for Pinyin)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
@@ -324,10 +324,6 @@
             background: #f0e0d0;
             color: #7a5a3a;
         }
-        .pos-Det {
-            background: #f0d4d4;
-            color: #7a3a3a;
-        }
         .pos-V-sep {
             background: #d4e8d4;
             color: #2d6b2d;
@@ -336,9 +332,9 @@
             background: #d4d8e8;
             color: #3a4a7a;
         }
-        .pos-M\/Prep\/V {
-            background: #d0d0e0;
-            color: #3a3a7a;
+        .pos-Vi {
+            background: #d4e0e0;
+            color: #2d5a5a;
         }
 
         .details-toggle {
@@ -547,7 +543,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>📚 詞彙 <span>Level 3-10</span></h1>
+            <h1>📚 詞彙 <span>Level 3-19</span></h1>
             <div class="sub">Flashcard Mode · <strong>Click the Hanzi</strong> to reveal Pinyin</div>
             <div class="badge">🔍 Click the character to show pinyin · "Show Details" for meaning & dialogue</div>
         </div>
@@ -573,207 +569,247 @@
 
     <script>
         // ------------------------------------------------------------
-        // DATA — Level 3-10 Vocabulary (Traditional Hanzi)
+        // DATA — Level 3-19 Vocabulary (Traditional Hanzi)
         // ------------------------------------------------------------
         const vocabData = [{
-            char: '對',
-            pinyin: 'duì',
-            pos: 'M / Prep / V',
-            en: 'Pair / To / To treat',
-            explanation: 'A versatile word: as a measure word for pairs (一對耳環), as a preposition meaning "to/towards" (對他說), or as a verb meaning "to treat" or "to face."',
-            dialogue: [
-                { speaker: 'A', chinese: '我買了一對耳環。', pinyin: 'Wǒ mǎi le yī duì ěrhuán.', english: 'I bought a pair of earrings.' },
-                { speaker: 'B', chinese: '很好看，你要對誰說謝謝？', pinyin: 'Hěn hǎokàn, nǐ yào duì shuí shuō xièxie?', english: 'They\'re very nice, who are you going to say thank you to?' }
-            ]
-        }, {
-            char: '對方',
-            pinyin: 'duìfāng',
-            pos: 'N',
-            en: 'The other side / Counterparty',
-            explanation: 'Refers to the person or party on the other side of an interaction, such as in a conversation, negotiation, or relationship.',
-            dialogue: [
-                { speaker: 'A', chinese: '你認識對方嗎？', pinyin: 'Nǐ rènshi duìfāng ma?', english: 'Do you know the other person?' },
-                { speaker: 'B', chinese: '不認識，這是第一次見面。', pinyin: 'Bù rènshi, zhè shì dì yī cì jiànmiàn.', english: 'No, this is the first time we meet.' }
-            ]
-        }, {
-            char: '對話',
-            pinyin: 'duìhuà',
-            pos: 'N',
-            en: 'Dialogue / Conversation',
-            explanation: 'A formal or informal exchange of ideas or conversation between two or more people. Used in literature, drama, and daily life.',
-            dialogue: [
-                { speaker: 'A', chinese: '這段對話寫得很好。', pinyin: 'Zhè duàn duìhuà xiě de hěn hǎo.', english: 'This dialogue is written very well.' },
-                { speaker: 'B', chinese: '對，很自然。', pinyin: 'Duì, hěn zìrán.', english: 'Yes, it\'s very natural.' }
-            ]
-        }, {
-            char: '對了',
-            pinyin: 'duìle',
-            pos: 'Ptc',
-            en: 'By the way / That\'s right',
-            explanation: 'An interjection used to agree with someone ("That\'s right!") or to change the topic and introduce new information ("Oh, by the way...").',
-            dialogue: [
-                { speaker: 'A', chinese: '對了，我明天要出差。', pinyin: 'Duìle, wǒ míngtiān yào chūchāi.', english: 'Oh by the way, I\'m going on a business trip tomorrow.' },
-                { speaker: 'B', chinese: '真的嗎？去哪裡？', pinyin: 'Zhēn de ma? Qù nǎlǐ?', english: 'Really? Where to?' }
-            ]
-        }, {
-            char: '對象',
-            pinyin: 'duìxiàng',
-            pos: 'N',
-            en: 'Target / Partner (romantic)',
-            explanation: 'Can mean the target of an action or goal, or informally refer to a boyfriend/girlfriend or marriage partner.',
-            dialogue: [
-                { speaker: 'A', chinese: '他是我的戀愛對象。', pinyin: 'Tā shì wǒ de liàn\'ài duìxiàng.', english: 'He is my romantic interest.' },
-                { speaker: 'B', chinese: '恭喜你！', pinyin: 'Gōngxǐ nǐ!', english: 'Congratulations!' }
-            ]
-        }, {
-            char: '頓',
-            pinyin: 'dùn',
-            pos: 'M',
-            en: 'Measure word for meals / scoldings',
-            explanation: 'Used for meals (一頓飯 = a meal) and for scoldings or beatings (一頓罵 = a scolding). Also means "pause" or "stop" as a verb.',
-            dialogue: [
-                { speaker: 'A', chinese: '我請你吃一頓飯。', pinyin: 'Wǒ qǐng nǐ chī yī dùn fàn.', english: 'I\'ll treat you to a meal.' },
-                { speaker: 'B', chinese: '太好了，謝謝！', pinyin: 'Tài hǎo le, xièxie!', english: 'Great, thanks!' }
-            ]
-        }, {
-            char: '多少',
-            pinyin: 'duōshao',
-            pos: 'Adv',
-            en: 'How many / How much',
-            explanation: 'A question word used to ask about quantity or amount. Can also be used as an indefinite quantity meaning "some" or "a little."',
-            dialogue: [
-                { speaker: 'A', chinese: '這個多少錢？', pinyin: 'Zhège duōshao qián?', english: 'How much does this cost?' },
-                { speaker: 'B', chinese: '一百塊。', pinyin: 'Yī bǎi kuài.', english: 'One hundred yuan.' }
-            ]
-        }, {
-            char: '嗯',
-            pinyin: 'èn',
-            pos: 'Ptc',
-            en: 'Mm-hmm / Uh-huh',
-            explanation: 'An interjection used to express agreement, acknowledgment, or hesitation. Often used as a filler in conversation.',
-            dialogue: [
-                { speaker: 'A', chinese: '你明白我的意思嗎？', pinyin: 'Nǐ míngbai wǒ de yìsi ma?', english: 'Do you understand what I mean?' },
-                { speaker: 'B', chinese: '嗯，我懂了。', pinyin: 'Èn, wǒ dǒng le.', english: 'Mm-hmm, I understand.' }
-            ]
-        }, {
-            char: '而',
-            pinyin: 'ér',
-            pos: 'Conj',
-            en: 'And / But / Yet',
-            explanation: 'A formal conjunction used to connect two clauses, often indicating contrast (but) or addition (and). Common in written Chinese.',
-            dialogue: [
-                { speaker: 'A', chinese: '他聰明而勤奮。', pinyin: 'Tā cōngmíng ér qínfèn.', english: 'He is smart and diligent.' },
-                { speaker: 'B', chinese: '難怪他這麼成功。', pinyin: 'Nánguài tā zhème chénggōng.', english: 'No wonder he is so successful.' }
-            ]
-        }, {
-            char: '兒童',
-            pinyin: 'értóng',
-            pos: 'N',
-            en: 'Children',
-            explanation: 'A formal term for children, usually referring to those under 12 or 14 years old. Often used in educational and legal contexts.',
-            dialogue: [
-                { speaker: 'A', chinese: '兒童節是六月一日。', pinyin: 'Értóng jié shì liù yuè yī rì.', english: 'Children\'s Day is June 1st.' },
-                { speaker: 'B', chinese: '我們帶孩子去公園玩吧。', pinyin: 'Wǒmen dài háizi qù gōngyuán wán ba.', english: 'Let\'s take the kids to the park to play.' }
-            ]
-        }, {
-            char: '發',
-            pinyin: 'fā',
+            char: '剪',
+            pinyin: 'jiǎn',
             pos: 'V',
-            en: 'To send / To issue / To emit',
-            explanation: 'A core verb meaning to send out, emit, or issue. Also used in many compound words related to "starting" or "becoming."',
+            en: 'To cut (with scissors)',
+            explanation: 'To use scissors or shears to cut paper, cloth, hair, or other materials.',
             dialogue: [
-                { speaker: 'A', chinese: '請幫我發一封信。', pinyin: 'Qǐng bāng wǒ fā yī fēng xìn.', english: 'Please send a letter for me.' },
-                { speaker: 'B', chinese: '好的，馬上發。', pinyin: 'Hǎo de, mǎshàng fā.', english: 'OK, I\'ll send it right away.' }
+                { speaker: 'A', chinese: '請幫我剪一下頭髮。', pinyin: 'Qǐng bāng wǒ jiǎn yīxià tóufǎ.', english: 'Please cut my hair for me.' },
+                { speaker: 'B', chinese: '沒問題，你想剪多短？', pinyin: 'Méi wèntí, nǐ xiǎng jiǎn duō duǎn?', english: 'No problem, how short do you want it?' }
             ]
         }, {
-            char: '發表',
-            pinyin: 'fābiǎo',
+            char: '檢查',
+            pinyin: 'jiǎnchá',
             pos: 'V',
-            en: 'To publish / To express (opinion)',
-            explanation: 'To publicly announce, publish, or express an opinion, article, or statement. Used in media, academic, and formal contexts.',
+            en: 'To inspect / To check',
+            explanation: 'To examine something carefully to determine its condition or correctness.',
             dialogue: [
-                { speaker: 'A', chinese: '他發表了一篇論文。', pinyin: 'Tā fābiǎo le yī piān lùnwén.', english: 'He published a paper.' },
-                { speaker: 'B', chinese: '是什麼主題？', pinyin: 'Shì shénme zhǔtí?', english: 'What\'s the topic?' }
+                { speaker: 'A', chinese: '醫生要檢查你的身體。', pinyin: 'Yīshēng yào jiǎnchá nǐ de shēntǐ.', english: 'The doctor needs to check your body.' },
+                { speaker: 'B', chinese: '好的，我準備好了。', pinyin: 'Hǎo de, wǒ zhǔnbèi hǎo le.', english: 'OK, I\'m ready.' }
             ]
         }, {
-            char: '發財',
-            pinyin: 'fācái',
+            char: '將來',
+            pinyin: 'jiānglái',
+            pos: 'N',
+            en: 'Future',
+            explanation: 'The time yet to come, often used in the context of hopes, plans, or predictions.',
+            dialogue: [
+                { speaker: 'A', chinese: '你將來想做什麼工作？', pinyin: 'Nǐ jiānglái xiǎng zuò shénme gōngzuò?', english: 'What job do you want to do in the future?' },
+                { speaker: 'B', chinese: '我想成為一名醫生。', pinyin: 'Wǒ xiǎng chéngwéi yī míng yīshēng.', english: 'I want to become a doctor.' }
+            ]
+        }, {
+            char: '獎學金',
+            pinyin: 'jiǎngxuéjīn',
+            pos: 'N',
+            en: 'Scholarship',
+            explanation: 'A sum of money given to a student to support their education, often based on academic merit.',
+            dialogue: [
+                { speaker: 'A', chinese: '他獲得了全額獎學金。', pinyin: 'Tā huòdé le quán'é jiǎngxuéjīn.', english: 'He received a full scholarship.' },
+                { speaker: 'B', chinese: '太好了，這對他幫助很大。', pinyin: 'Tài hǎo le, zhè duì tā bāngzhù hěn dà.', english: 'That\'s great, it helps him a lot.' }
+            ]
+        }, {
+            char: '降低',
+            pinyin: 'jiàngdī',
+            pos: 'Vpt',
+            en: 'To lower / To reduce',
+            explanation: 'To make something smaller in amount, degree, or level.',
+            dialogue: [
+                { speaker: 'A', chinese: '我們需要降低成本。', pinyin: 'Wǒmen xūyào jiàngdī chéngběn.', english: 'We need to reduce costs.' },
+                { speaker: 'B', chinese: '可以從材料方面下手。', pinyin: 'Kěyǐ cóng cáiliào fāngmiàn xiàshǒu.', english: 'We can start with the materials.' }
+            ]
+        }, {
+            char: '講話',
+            pinyin: 'jiǎnghuà',
             pos: 'V-sep',
-            en: 'To get rich / To make a fortune',
-            explanation: 'A separable verb meaning to become wealthy. Often used as a wish during Chinese New Year: 恭喜發財 (Wishing you prosperity).',
+            en: 'To speak / To talk',
+            explanation: 'To give a speech or to have a conversation. A separable verb (e.g., 講了幾句話).',
             dialogue: [
-                { speaker: 'A', chinese: '恭喜發財！', pinyin: 'Gōngxǐ fācái!', english: 'Wishing you wealth!' },
-                { speaker: 'B', chinese: '謝謝，也祝你發財！', pinyin: 'Xièxie, yě zhù nǐ fācái!', english: 'Thank you, and I wish you the same!' }
+                { speaker: 'A', chinese: '他在台上講話。', pinyin: 'Tā zài tái shàng jiǎnghuà.', english: 'He is speaking on stage.' },
+                { speaker: 'B', chinese: '他講得很好。', pinyin: 'Tā jiǎng de hěn hǎo.', english: 'He speaks very well.' }
             ]
         }, {
-            char: '發出',
-            pinyin: 'fāchū',
-            pos: 'Vpt',
-            en: 'To send out / To emit',
-            explanation: 'To give out or issue something, such as a sound, light, signal, or official notice. Focuses on the action of sending outward.',
+            char: '講價',
+            pinyin: 'jiǎngjià',
+            pos: 'Vi',
+            en: 'To bargain',
+            explanation: 'To negotiate the price of an item with a seller, especially in markets or street stalls.',
             dialogue: [
-                { speaker: 'A', chinese: '機器發出很大的聲音。', pinyin: 'Jīqì fāchū hěn dà de shēngyīn.', english: 'The machine is emitting a loud sound.' },
-                { speaker: 'B', chinese: '可能壞了，趕快檢查。', pinyin: 'Kěnéng huài le, gǎnkuài jiǎnchá.', english: 'It might be broken, check it quickly.' }
+                { speaker: 'A', chinese: '你可以在市場講價。', pinyin: 'Nǐ kěyǐ zài shìchǎng jiǎngjià.', english: 'You can bargain at the market.' },
+                { speaker: 'B', chinese: '真的嗎？我試試看。', pinyin: 'Zhēn de ma? Wǒ shìshi kàn.', english: 'Really? I\'ll give it a try.' }
             ]
         }, {
-            char: '發達',
-            pinyin: 'fādá',
+            char: '講究',
+            pinyin: 'jiǎngjiu',
             pos: 'Vs',
-            en: 'Developed / Advanced',
-            explanation: 'Describes a country, region, or industry that is economically or technologically advanced. Opposite of 落後 (backward).',
+            en: 'Fastidious / Particular',
+            explanation: 'To be very particular about quality, style, or detail; to have high standards.',
             dialogue: [
-                { speaker: 'A', chinese: '日本是發達國家。', pinyin: 'Rìběn shì fādá guójiā.', english: 'Japan is a developed country.' },
-                { speaker: 'B', chinese: '對，他們的科技很先進。', pinyin: 'Duì, tāmen de kējì hěn xiānjìn.', english: 'Yes, their technology is very advanced.' }
+                { speaker: 'A', chinese: '他對吃很講究。', pinyin: 'Tā duì chī hěn jiǎngjiu.', english: 'He is very particular about food.' },
+                { speaker: 'B', chinese: '對，他喜歡高級餐廳。', pinyin: 'Duì, tā xǐhuān gāojí cāntīng.', english: 'Yes, he likes fine dining.' }
             ]
         }, {
-            char: '發揮',
-            pinyin: 'fāhuī',
-            pos: 'V',
-            en: 'To bring into play / To exert',
-            explanation: 'To put something into action or use effectively, such as potential, talent, or ability. Often used with 作用 (effect) or 潛力 (potential).',
+            char: '醬油',
+            pinyin: 'jiàngyóu',
+            pos: 'N',
+            en: 'Soy sauce',
+            explanation: 'A dark, salty liquid made from fermented soybeans, used as a condiment in Asian cuisine.',
             dialogue: [
-                { speaker: 'A', chinese: '你要充分發揮自己的能力。', pinyin: 'Nǐ yào chōngfèn fāhuī zìjǐ de nénglì.', english: 'You must fully bring your abilities into play.' },
-                { speaker: 'B', chinese: '我會努力去做。', pinyin: 'Wǒ huì nǔlì qù zuò.', english: 'I will work hard to do it.' }
+                { speaker: 'A', chinese: '請給我一瓶醬油。', pinyin: 'Qǐng gěi wǒ yī píng jiàngyóu.', english: 'Please give me a bottle of soy sauce.' },
+                { speaker: 'B', chinese: '好的，你要生抽還是老抽？', pinyin: 'Hǎo de, nǐ yào shēngchōu háishì lǎochōu?', english: 'OK, do you want light or dark soy sauce?' }
             ]
         }, {
-            char: '發覺',
-            pinyin: 'fājué',
+            char: '堅強',
+            pinyin: 'jiānqiáng',
+            pos: 'Vs',
+            en: 'Strong (character)',
+            explanation: 'Describes a person who is mentally tough, resilient, and able to face adversity.',
+            dialogue: [
+                { speaker: 'A', chinese: '他很堅強，從不抱怨。', pinyin: 'Tā hěn jiānqiáng, cóng bù bàoyuàn.', english: 'He is very strong-willed and never complains.' },
+                { speaker: 'B', chinese: '我佩服他的毅力。', pinyin: 'Wǒ pèifú tā de yìlì.', english: 'I admire his perseverance.' }
+            ]
+        }, {
+            char: '減輕',
+            pinyin: 'jiǎnqīng',
             pos: 'Vpt',
-            en: 'To discover / To realize',
-            explanation: 'To become aware of something that was previously unnoticed, often through observation or reflection.',
+            en: 'To lighten / To alleviate',
+            explanation: 'To make a burden, pain, or problem less severe.',
             dialogue: [
-                { speaker: 'A', chinese: '我發覺自己犯了一個錯誤。', pinyin: 'Wǒ fājué zìjǐ fàn le yī gè cuòwù.', english: 'I realized that I made a mistake.' },
-                { speaker: 'B', chinese: '沒關係，趕緊改正。', pinyin: 'Méi guānxi, gǎnjǐn gǎizhèng.', english: 'It\'s okay, correct it quickly.' }
+                { speaker: 'A', chinese: '運動可以減輕壓力。', pinyin: 'Yùndòng kěyǐ jiǎnqīng yālì.', english: 'Exercise can alleviate stress.' },
+                { speaker: 'B', chinese: '我每天都去跑步。', pinyin: 'Wǒ měitiān dōu qù pǎobù.', english: 'I go running every day.' }
             ]
         }, {
-            char: '發明',
-            pinyin: 'fāmíng',
-            pos: 'N / Vpt',
-            en: 'To invent / Invention',
-            explanation: 'As a verb, to create something new that has never existed before. As a noun, the invention itself. Used for technology, processes, and ideas.',
+            char: '減少',
+            pinyin: 'jiǎnshǎo',
+            pos: 'Vpt',
+            en: 'To reduce / To decrease',
+            explanation: 'To make something become less in quantity or size.',
             dialogue: [
-                { speaker: 'A', chinese: '愛迪生發明了電燈。', pinyin: 'Àidíshēng fāmíng le diàndēng.', english: 'Edison invented the light bulb.' },
-                { speaker: 'B', chinese: '這是很偉大的發明。', pinyin: 'Zhè shì hěn wěidà de fāmíng.', english: 'That is a great invention.' }
+                { speaker: 'A', chinese: '我們要減少浪費。', pinyin: 'Wǒmen yào jiǎnshǎo làngfèi.', english: 'We need to reduce waste.' },
+                { speaker: 'B', chinese: '對，要節約資源。', pinyin: 'Duì, yào jiéyuē zīyuán.', english: 'Yes, we need to conserve resources.' }
             ]
         }, {
-            char: '犯',
-            pinyin: 'fàn',
+            char: '簡直',
+            pinyin: 'jiǎnzhí',
+            pos: 'Adv',
+            en: 'Simply / Absolutely (emphatic)',
+            explanation: 'Used to emphasize a statement, often expressing surprise or strong opinion, like "simply" or "virtually."',
+            dialogue: [
+                { speaker: 'A', chinese: '這簡直太棒了！', pinyin: 'Zhè jiǎnzhí tài bàng le!', english: 'This is simply amazing!' },
+                { speaker: 'B', chinese: '對，我也這麼認為。', pinyin: 'Duì, wǒ yě zhème rènwéi.', english: 'Yes, I think so too.' }
+            ]
+        }, {
+            char: '建立',
+            pinyin: 'jiànlì',
+            pos: 'V',
+            en: 'To establish / To set up',
+            explanation: 'To create or form something new, such as an organization, system, or relationship.',
+            dialogue: [
+                { speaker: 'A', chinese: '他們建立了新的公司。', pinyin: 'Tāmen jiànlì le xīn de gōngsī.', english: 'They established a new company.' },
+                { speaker: 'B', chinese: '希望他們成功。', pinyin: 'Xīwàng tāmen chénggōng.', english: 'I hope they succeed.' }
+            ]
+        }, {
+            char: '建設',
+            pinyin: 'jiànshè',
+            pos: 'N / V',
+            en: 'Construction / To build',
+            explanation: 'As a noun, the process of building or developing something. As a verb, to construct or build.',
+            dialogue: [
+                { speaker: 'A', chinese: '這個城市的建設很快。', pinyin: 'Zhège chéngshì de jiànshè hěn kuài.', english: 'The construction of this city is very fast.' },
+                { speaker: 'B', chinese: '對，許多新大樓正在建設中。', pinyin: 'Duì, xǔduō xīn dàlóu zhèngzài jiànshè zhōng.', english: 'Yes, many new buildings are under construction.' }
+            ]
+        }, {
+            char: '驕傲',
+            pinyin: 'jiāoào',
+            pos: 'Vs',
+            en: 'Proud / Arrogant',
+            explanation: 'Can mean proud (positive) or arrogant (negative). Context determines the meaning.',
+            dialogue: [
+                { speaker: 'A', chinese: '他為自己的孩子感到驕傲。', pinyin: 'Tā wèi zìjǐ de háizi gǎndào jiāoào.', english: 'He is proud of his children.' },
+                { speaker: 'B', chinese: '父母都應該這樣。', pinyin: 'Fùmǔ dōu yīnggāi zhèyàng.', english: 'All parents should be that way.' }
+            ]
+        }, {
+            char: '交流',
+            pinyin: 'jiāoliú',
+            pos: 'Vi',
+            en: 'To exchange / To communicate',
+            explanation: 'To share ideas, feelings, or information between people or groups.',
+            dialogue: [
+                { speaker: 'A', chinese: '我們需要加強文化交流。', pinyin: 'Wǒmen xūyào jiāqiáng wénhuà jiāoliú.', english: 'We need to strengthen cultural exchange.' },
+                { speaker: 'B', chinese: '這樣可以增進理解。', pinyin: 'Zhèyàng kěyǐ zēngjìn lǐjiě.', english: 'This can enhance understanding.' }
+            ]
+        }, {
+            char: '郊區',
+            pinyin: 'jiāoqū',
+            pos: 'N',
+            en: 'Suburb',
+            explanation: 'The area outside a city but still close to it, often residential and less crowded.',
+            dialogue: [
+                { speaker: 'A', chinese: '我住在郊區，比較安靜。', pinyin: 'Wǒ zhù zài jiāoqū, bǐjiào ānjìng.', english: 'I live in the suburbs, it\'s quieter.' },
+                { speaker: 'B', chinese: '我也喜歡郊區的環境。', pinyin: 'Wǒ yě xǐhuān jiāoqū de huánjìng.', english: 'I also like the environment of the suburbs.' }
+            ]
+        }, {
+            char: '交友',
+            pinyin: 'jiāoyǒu',
+            pos: 'Vi',
+            en: 'To make friends',
+            explanation: 'To form friendships with others.',
+            dialogue: [
+                { speaker: 'A', chinese: '他很善於交友。', pinyin: 'Tā hěn shànyú jiāoyǒu.', english: 'He is good at making friends.' },
+                { speaker: 'B', chinese: '對，他性格開朗。', pinyin: 'Duì, tā xìnggé kāilǎng.', english: 'Yes, he has an outgoing personality.' }
+            ]
+        }, {
+            char: '角度',
+            pinyin: 'jiǎodù',
+            pos: 'N',
+            en: 'Angle / Point of view',
+            explanation: 'The angle formed by lines, or a particular perspective or way of looking at something.',
+            dialogue: [
+                { speaker: 'A', chinese: '這個問題有很多角度。', pinyin: 'Zhège wèntí yǒu hěnduō jiǎodù.', english: 'This issue has many angles.' },
+                { speaker: 'B', chinese: '我們應該從不同角度思考。', pinyin: 'Wǒmen yīnggāi cóng bùtóng jiǎodù sīkǎo.', english: 'We should think from different perspectives.' }
+            ]
+        }, {
+            char: '教',
+            pinyin: 'jiào',
             pos: 'Vst',
-            en: 'To commit (a crime/error)',
-            explanation: 'To commit a negative action, such as a mistake, crime, or violation. Often used with 錯誤 (mistake), 罪 (crime), or 法 (law).',
+            en: 'To teach / To instruct',
+            explanation: 'To impart knowledge or skill to someone. Often used as a verb meaning "to teach."',
             dialogue: [
-                { speaker: 'A', chinese: '他犯了法，被警察抓了。', pinyin: 'Tā fàn le fǎ, bèi jǐngchá zhuā le.', english: 'He broke the law and was arrested by the police.' },
-                { speaker: 'B', chinese: '真是太可惜了。', pinyin: 'Zhēn shì tài kěxí le.', english: 'What a pity.' }
+                { speaker: 'A', chinese: '他教中文。', pinyin: 'Tā jiào Zhōngwén.', english: 'He teaches Chinese.' },
+                { speaker: 'B', chinese: '他是個好老師。', pinyin: 'Tā shì gè hǎo lǎoshī.', english: 'He is a good teacher.' }
             ]
         }, {
-            char: '反而',
-            pinyin: 'fǎn ér',
-            pos: 'Conj',
-            en: 'Instead / On the contrary',
-            explanation: 'A conjunction indicating that a result is unexpected or opposite to what was expected. Often used after a negative statement.',
+            char: '教材',
+            pinyin: 'jiàocái',
+            pos: 'N',
+            en: 'Teaching materials',
+            explanation: 'Books, worksheets, audio, or other resources used in teaching.',
             dialogue: [
-                { speaker: 'A', chinese: '我幫了他，他反而怪我。', pinyin: 'Wǒ bāng le tā, tā fǎnér guài wǒ.', english: 'I helped him, but instead he blamed me.' },
-                { speaker: 'B', chinese: '他怎麼這樣？', pinyin: 'Tā zěnme zhèyàng?', english: 'Why would he do that?' }
+                { speaker: 'A', chinese: '你準備好教材了嗎？', pinyin: 'Nǐ zhǔnbèi hǎo jiàocái le ma?', english: 'Have you prepared the teaching materials?' },
+                { speaker: 'B', chinese: '準備好了，這是講義和練習題。', pinyin: 'Zhǔnbèi hǎo le, zhè shì jiǎngyì hé liànxí tí.', english: 'Yes, here are the handouts and practice exercises.' }
+            ]
+        }, {
+            char: '教導',
+            pinyin: 'jiàodǎo',
+            pos: 'V',
+            en: 'To guide / To instruct (moral)',
+            explanation: 'To provide guidance, especially in moral or ethical matters, often from a mentor or authority.',
+            dialogue: [
+                { speaker: 'A', chinese: '父母教導孩子要誠實。', pinyin: 'Fùmǔ jiàodǎo háizi yào chéngshí.', english: 'Parents teach children to be honest.' },
+                { speaker: 'B', chinese: '這是很重要的品德。', pinyin: 'Zhè shì hěn zhòngyào de pǐndé.', english: 'This is an important virtue.' }
+            ]
+        }, {
+            char: '教法',
+            pinyin: 'jiàofǎ',
+            pos: 'N',
+            en: 'Teaching method',
+            explanation: 'The approach or method used in teaching, often based on educational philosophy.',
+            dialogue: [
+                { speaker: 'A', chinese: '這種教法很有效。', pinyin: 'Zhè zhǒng jiàofǎ hěn yǒuxiào.', english: 'This teaching method is very effective.' },
+                { speaker: 'B', chinese: '對，學生都很喜歡。', pinyin: 'Duì, xuéshēng dōu hěn xǐhuān.', english: 'Yes, the students all like it.' }
             ]
         }];
 
@@ -803,10 +839,9 @@
             'Ptc': 'Particle',
             'N/V': 'Noun / Verb',
             'Conj': 'Conjunction',
-            'Det': 'Determiner',
             'V-sep': 'Separable Verb',
             'Vpt': 'Verb Particle (Trans.)',
-            'M/Prep/V': 'Measure / Prep / Verb'
+            'Vi': 'Intransitive Verb'
         };
         const dotColorMap = {
             'N': '#7ba9c9',
@@ -819,10 +854,9 @@
             'Ptc': '#c9b86a',
             'N/V': '#7ba9c9',
             'Conj': '#f0d0b0',
-            'Det': '#f0b0b0',
             'V-sep': '#6ab06a',
             'Vpt': '#6a7ab0',
-            'M/Prep/V': '#b0b0d0'
+            'Vi': '#6a9a9a'
         };
 
         function buildLegend() {
@@ -862,7 +896,7 @@
 
             let html = '';
             filtered.forEach((item, index) => {
-                const posClass = 'pos-' + item.pos.replace(/\//g, '-');
+                const posClass = 'pos-' + item.pos.replace('/', '-');
                 const posDisplay = posLabels[item.pos] || item.pos;
 
                 // Build dialogue HTML
